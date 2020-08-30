@@ -1,38 +1,24 @@
 from random import randrange
+import json
 import fastapi
-import jsonlines
 
-def starting_scenario_generation():
+from fastapi import FastAPI
 
-    #this is a method within a larger class
-    ### I'm looking for the ability to receive a request from the Node server and return a scenario that can be 
-    ### ingested by the game engine. Pass back back info on items + location to begin with
+app = FastAPI()
 
-    random_seed = randrange(0,3)
-    scenario_files = ['./input_variables/armor_types.jsonl','./input_variables/maps.jsonl']
-    
-    
-    starting_scenario = {
-        "map":None,
-        "items":None,
-        "npcs":None
-    }
-    
-    for input in scenario_files:
-        with jsonlines.open(input) as reader:
-            print("it got to here")
-            armor_types = []
-            for choice in reader:
-                armor_types.append(choice)
-            starting_scenario['armor_type'] = armor_types[random_seed]
 
-    return starting_scenario
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
 
-# def class match_generator(self, username, time_for_randomness):
-#     random_seed = time_for_randomness
-
-#     #distribute players and groups across map
-
-#     #determine locations of items
-
-#     #pick map based on random seed
+@app.get("/items/random_armor")
+async def get_random_armor(armor_class,armor_piece):
+    with open('game_data/items.json') as f:
+        items = json.load(f)
+        armor_components = items['armor_components'][armor_class]
+        armor_pieces = items['armor_pieces'][armor_piece]
+        random_armor = {
+            "armor_component": armor_components[randrange(0,len(armor_components))],
+            "armor_piece": armor_pieces[randrange(0,len(armor_pieces))]
+        }
+        return random_armor

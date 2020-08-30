@@ -1,0 +1,114 @@
+{
+    "armor_components":{
+                "light": [
+                    {"name":"cloth", 
+                        "attributes": {
+                            "armor_class": 1,
+                                "hit_points": 10,
+                                "modifier": null,
+                                "weight": 1
+                        }
+                    },
+                    {"name":"silk", 
+                        "attributes": {
+                            "armor_class": 1,
+                                "hit_points": 5,
+                                "modifier": "magic_bonus",
+                                "weight": 5
+                        }
+                    }
+
+                ],
+                "medium": [
+                    {"name":"leather", 
+                        "attributes": {
+                            "armor_class": 2,
+                                "hit_points": 20,
+                                "modifier": null,
+                                "weight": 5
+                        }
+                    },
+                    {"name":"scale", 
+                        "attributes": {
+                            "armor_class": 2,
+                                "hit_points": 25,
+                                "modifier": null,
+                                "weight": 6
+                        }
+                    }
+                ],
+                "heavy": [
+                    {"name":"plate", 
+                        "attributes": {
+                            "armor_class": 3,
+                                "hit_points": 30,
+                                "modifier": null,
+                                "weight": 10
+                        }
+                    },
+                    {"name":"mythril", 
+                        "attributes": {
+                            "armor_class": 3,
+                                "hit_points": 35,
+                                "modifier": null,
+                                "weight": 5
+                        }
+                    }
+                ]
+                
+        },
+    "armor_pieces":{
+            "head": [
+                {
+                    "name":"cap",
+                    "modifiers": ["decreased_vision"] 
+                },
+                {
+                    "name":"helm",
+                    "modifiers": ["hard_head","ranged_deflection","melee_deflection"]
+                }
+            ],
+            "chest": [
+                {
+                    "name":"vest",
+                    "modifiers": ["increased_movement","load_reduction"] 
+                },
+                {
+                    "name":"robe",
+                    "modifiers": ["increased_magic","vulnerable"]
+                },
+                {
+                    "name":"breastplate",
+                    "modifiers": ["decreased_mobility","ranged_deflection","melee_deflection"]
+                }
+            ],
+            "legs": [
+                {
+                    "name":"boots",
+                    "modifiers": ["foot_protection"] 
+                },
+                {
+                    "name":"greaves",
+                    "modifiers": ["ranged_deflection","melee_deflection"]
+                },
+                {
+                    "name":"sabatons",
+                    "modifiers": ["ranged_deflection","melee_deflection"]
+                }
+            ]
+        },
+    "weapon_types":{
+        "ranged": [
+            {
+                "weapon_type":"bow",
+                "weapon_requirements":"ammunition",
+                "base_damage":10
+            },
+            {
+                "weapon_type":"bow",
+                "weapon_requirements":"ammunition",
+                "base_damage":10
+            },
+        ]
+    }
+}
