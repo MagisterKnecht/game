@@ -108,7 +108,7 @@
                 "weapon_type":"bow",
                 "weapon_requirements":"ammunition",
                 "base_damage":10
-            },
+            }
         ]
     }
 }
